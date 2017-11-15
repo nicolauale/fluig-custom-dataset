@@ -19,17 +19,17 @@ Nesse exemplo acessaremos o cadastro de clientes do TOTVS Protheus, pelo Fluig, 
 
 ```javascript
 
-	// Cria um array com os parâmetros de acesso, tabela e campos
-	var fieldArray = new Array("/jdbc/FluigDSRO", "PROTHEUS.SA1010", "A1_COD", "A1_NOME", "A1_CGC");
+// Cria um array com os parâmetros de acesso, tabela e campos
+var fieldArray = new Array("/jdbc/FluigDSRO", "PROTHEUS.SA1010", "A1_COD", "A1_NOME", "A1_CGC");
 	
-	// Cria uma consraint de "like"
-	var c1 = DatasetFactory.createConstraint("A1_NOME", "%NICOLAU%", "%NICOLAU%", ConstraintType.MUST);
-	c1.setLikeSearch(true);
-    var constra = new Array(c1);
-    // ---
+// Cria uma consraint de "like"
+var c1 = DatasetFactory.createConstraint("A1_NOME", "%NICOLAU%", "%NICOLAU%", ConstraintType.MUST);
+c1.setLikeSearch(true);
+var constra = new Array(c1);
+// ---
 
-    // Cria o dataset com o retorno do "select" 
-	var dsTranslator = DatasetFactory.getDataset("db_generic_dataset", fieldArray, constra, null);
+// Cria o dataset com o retorno do "select" 
+var dsTranslator = DatasetFactory.getDataset("db_generic_dataset", fieldArray, constra, null);
 
 ```
 
@@ -40,9 +40,9 @@ Nesse exemplo acessaremos o cadastro de fornecedores do TOTVS Protheus, pelo Flu
 
 ```javascript
 
-	var fieldArray = new Array("/jdbc/FluigDSRO", "select * FROM PROTHEUS.SA2010 ");
+var fieldArray = new Array("/jdbc/FluigDSRO", "select * FROM PROTHEUS.SA2010 ");
 		
-	var dsTranslator = DatasetFactory.getDataset("db_generic_sqldataset", fieldArray, null, null);
+var dsTranslator = DatasetFactory.getDataset("db_generic_sqldataset", fieldArray, null, null);
 
 ```
 
@@ -50,9 +50,9 @@ Ou para executar um comando de "update", para o caso de comandos diferentes de "
 
 ```javascript
 
-	var fieldArray = new Array("/jdbc/FluigDSRO", "update PROTHEUS.SA2010 set A2_NOME = 'ALEXANDRE NICOLAU' where A1_FILIAL = '01' and A2_COD = '001'");
+var fieldArray = new Array("/jdbc/FluigDSRO", "update PROTHEUS.SA2010 set A2_NOME = 'ALEXANDRE NICOLAU' where A1_FILIAL = '01' and A2_COD = '001'");
 		
-	var dsTranslator = DatasetFactory.getDataset("db_generic_sqldataset", fieldArray, null, null);
+var dsTranslator = DatasetFactory.getDataset("db_generic_sqldataset", fieldArray, null, null);
 
 ```
 
